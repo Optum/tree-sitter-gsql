@@ -1,0 +1,563 @@
+===
+Assign
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM x = 10,
+              y = x;
+
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (assign_stmt 
+                    (name) 
+                    (expr 
+                      (constant 
+                        (numeric 
+                          (integer 
+                            (digit) 
+                            (digit))))))) 
+                (dml_sub_stmt 
+                  (assign_stmt 
+                    (name) 
+                    (expr 
+                      (name))))))))))))
+
+===
+Func call
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+        POST-ACCUM func();
+    
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (func_call_stmt 
+                    (name)))))))))))
+
+
+
+===
+Global accum stmt
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+        POST-ACCUM @@glb += 1;
+    
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (g_accum_accum_stmt 
+                    (global_accum_name 
+                      (name)) 
+                    (expr 
+                      (constant 
+                        (numeric 
+                          (integer 
+                            (digit)))))))))))))))
+
+
+===
+Local Accum Stmt 
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+        POST-ACCUM s.@t += 1;
+    
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (l_accum_accum_stmt 
+                    (name) 
+                    (local_accum_name 
+                      (name)) 
+                    (expr 
+                      (constant 
+                        (numeric 
+                          (integer 
+                            (digit)))))))))))))))
+
+===
+Local Accum Stmt 
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+        POST-ACCUM s.@t += 1;
+    
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (l_accum_accum_stmt 
+                    (name) 
+                    (local_accum_name 
+                      (name)) 
+                    (expr 
+                      (constant 
+                        (numeric 
+                          (integer 
+                            (digit)))))))))))))))
+
+===
+Attr accum
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM s.attr += "a string";
+
+}
+---
+    
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (attr_accum_stmt 
+                    (name) 
+                    (name) 
+                    (expr 
+                      (constant 
+                        (string_literal)))))))))))))
+
+===
+V Accum Func Call
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM s.@lac.func(args);
+
+}
+---
+    
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (v_accum_func_call 
+                    (name) 
+                    (local_accum_name 
+                      (name)) 
+                    (name) 
+                    (arg_list 
+                      (expr 
+                        (name)))))))))))))
+
+===
+local var decl stmt
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM 
+        INT v = 1/3;
+
+}
+---
+    
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (local_var_decl_stmt 
+                    (base_type) 
+                    (name) 
+                    (expr 
+                      (expr 
+                        (constant 
+                          (numeric 
+                            (integer 
+                              (digit))))) 
+                      (math_operator) 
+                      (expr 
+                        (constant 
+                          (numeric 
+                            (integer 
+                              (digit))))))))))))))))
+===
+Accum Case
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM 
+        CASE 
+            When x then
+                thing()
+            WHEN y then
+                otherThing()
+            ELSE
+                bool elseThing = true
+            END;
+
+}
+---
+    
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (dml_sub_case_stmt 
+                    (condition 
+                      (expr 
+                        (name))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (func_call_stmt 
+                          (name)))) 
+                    (condition 
+                      (expr 
+                        (name))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (func_call_stmt 
+                          (name)))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (local_var_decl_stmt 
+                          (base_type) 
+                          (name) 
+                          (expr 
+                            (constant)))))))))))))))
+
+===
+Accum If
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM 
+            IF cond THEN
+                @@glb += "hello"
+            ElSE IF otherCond then
+                s.@lcl += "hello"
+            ELSE 
+                goodbye()
+            END;
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (dml_sub_if_stmt 
+                    (condition 
+                      (expr 
+                        (name))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (g_accum_accum_stmt 
+                          (global_accum_name 
+                            (name)) 
+                          (expr 
+                            (constant 
+                              (string_literal)))))) 
+                    (condition 
+                      (expr 
+                        (name))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (l_accum_accum_stmt 
+                          (name) 
+                          (local_accum_name 
+                            (name)) 
+                          (expr 
+                            (constant 
+                              (string_literal)))))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (func_call_stmt 
+                          (name))))))))))))))
+
+===
+Accum While
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM 
+            While x > 0 limit 10 DO
+                things()
+            END;
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (dml_sub_while_stmt 
+                    (condition 
+                      (expr 
+                        (name)) 
+                      (comparison_operator) 
+                      (expr 
+                        (constant 
+                          (numeric 
+                            (integer 
+                              (digit)))))) 
+                    (simple_size 
+                      (digit) 
+                      (digit)) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (func_call_stmt 
+                          (name))))))))))))))
+
+===
+Accum For Each
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+        POST-ACCUM 
+            FOREACH v: @@glbList DO
+                INT i = 2,
+                s.@sum += i
+            end ;
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (post_accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (dml_sub_for_each_stmt 
+                    (for_each_control 
+                      (name) 
+                      (set_bag_expr 
+                        (global_accum_name 
+                          (name)))) 
+                    (dml_sub_stmt_list 
+                      (dml_sub_stmt 
+                        (local_var_decl_stmt 
+                          (base_type) 
+                          (name) 
+                          (expr 
+                            (constant 
+                              (numeric 
+                                (integer 
+                                  (digit))))))) 
+                      (dml_sub_stmt 
+                        (l_accum_accum_stmt 
+                          (name) 
+                          (local_accum_name 
+                            (name)) 
+                          (expr 
+                            (name)))))))))))))))
+

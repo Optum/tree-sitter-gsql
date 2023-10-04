@@ -1,0 +1,61 @@
+===
+Query Body If
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    If cond1 then
+        V = SELECT s FROM S:s;
+    else If cond2 == "cond2" THEN
+        INT thing2 = 1;
+    ELSE
+        andNowForSomethignEntirelyDifferent();
+    END;
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (ERROR 
+        (condition 
+          (expr 
+            (name))) 
+        (query_body_stmts 
+          (query_body_stmt 
+            (gsql_select_block 
+              (gsql_select_clause 
+                (name) 
+                (name)) 
+              (from_clause 
+                (path_pattern 
+                  (step_source_set 
+                    (name) 
+                    (name))))))) 
+        (query_body_stmts 
+          (query_body_stmt 
+            (query_body_if_stmt 
+              (condition 
+                (expr 
+                  (name)) 
+                (comparison_operator) 
+                (expr 
+                  (constant 
+                    (string_literal)))) 
+              (query_body_stmts 
+                (query_body_stmt 
+                  (decl_stmt 
+                    (base_decl_stmt 
+                      (base_type) 
+                      (name) 
+                      (expr 
+                        (constant 
+                          (numeric 
+                            (integer 
+                              (digit))))))))) 
+              (query_body_stmts 
+                (query_body_stmt 
+                  (func_call_stmt 
+                    (name)))))))))))
+

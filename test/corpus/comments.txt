@@ -1,0 +1,56 @@
+===
+Line Comment
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    // This select stmt selects 
+    V = SELECT s FROM S:s;
+}
+---
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (line_comment) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name))))))))))
+
+===
+Block Comment
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    /*
+    This query gets data from the graph
+    */
+    V = SELECT s FROM S:s;
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (block_comment) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name))))))))))

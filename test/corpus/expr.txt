@@ -1,0 +1,129 @@
+name and constant are handled in the query body tests
+===
+Expr global_accum_name
+===
+CREATE OR REPLACE QUERY myQuery() FOR GRAPH MyGraph {
+    v = name;
+    v = @@ac;
+    v = name.name;
+    v = n.@n.size();
+    v = COALESCE(n);
+    v = ISEMPTY(n);
+    v = 1 + 2 / 3;
+    v = (1.2 - 3) * 5;
+    v = getvid(x);
+}
+
+---
+
+(gsql 
+  (create_query queryName: 
+    (name) 
+    (parameter_list) graphName: 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (name))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (name_dot 
+                (name) 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (set_bag_expr 
+                (name_dot 
+                  (name) 
+                  (local_accum_name 
+                    (name))) 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (arg_list 
+                (expr 
+                  (name))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (set_bag_expr 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (expr 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit))))) 
+                (math_operator) 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit)))))) 
+              (math_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (expr 
+                (expr 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (real 
+                          (digit) 
+                          (digit))))) 
+                  (math_operator) 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit))))))) 
+              (math_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (assign_stmt 
+            (name) 
+            (expr 
+              (func_call_stmt 
+                (name) 
+                (arg_list 
+                  (expr 
+                    (name)))))))))))

@@ -1,0 +1,30 @@
+===
+Query Body While
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    WHILE theWindBlows() LIMIT ludicrousSpeed DO
+        flyAKite();
+    END;
+
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (query_body_while_stmt 
+            (condition 
+              (expr 
+                (func_call_stmt 
+                  (name)))) 
+            (simple_size 
+              (name)) 
+            (query_body_stmts 
+              (query_body_stmt 
+                (func_call_stmt 
+                  (name))))))))))

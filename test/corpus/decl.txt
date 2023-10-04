@@ -1,0 +1,301 @@
+===
+Base Declaration
+===
+CREATE OR REPLACE QUERY myQuery()  FOR GRAPH MyGraph {
+    BOOL t;
+    INT x = 90;
+    FLOAT x = 90.0, y, z = 1.0;
+}
+---
+
+(gsql 
+  (create_query queryName: 
+    (name) 
+    (parameter_list) graphName: 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (base_decl_stmt 
+              (base_type) 
+              (name))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (base_decl_stmt 
+              (base_type) 
+              (name) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit) 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (base_decl_stmt 
+              (base_type) 
+              (name) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (real 
+                      (digit) 
+                      (digit) 
+                      (digit))))) 
+              (name) 
+              (name) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (real 
+                      (digit) 
+                      (digit))))))))))))
+
+===
+Accum Declaration
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    SumAccum<INT> @ac1;
+    SumAccum<FLOAT> @a, @@b;
+    SumAccum<DOUBLE> @ac1;
+    SumAccum<STRING> @ac1;
+    MaxAccum<INT> @ac1 = 3;
+    MaxAccum<INT> @ac1 = 3;
+    MaxAccum<FLOAT> @@ac1;
+    MinAccum<DOUBLE> @@ac1;
+    AvgAccum @ac1 = 0;
+    AvgAccum @ac1 = 1;
+    AvgAccum @ac1, @@b, @@c;
+    OrAccum @ac1;
+    AndAccum @@ac1;
+    BitwiseOrAccum @ac1;
+    BitwiseAndAccum @ac1;
+    ListAccum<STRING> @ac1;
+    SetAccum<Name> @ac1, @@b;
+    BagAccum<FLOAT> @ac1;
+    MapAccum<INT, STRING> @acc;
+    MapAccum<INT, STRING> @@acc;
+    HeapAccum<T> (150, attr1 ASC, attr2 DESC) @@ac1;
+    GroupByAccum<STRING k, INT i, ListAccum<STRING> l, SumAccum<STRING> x> @ac1;
+    ArrayAccum<X> @ac1;
+}
+
+---
+
+(gsql 
+  (create_query queryName: 
+    (name) 
+    (parameter_list) graphName: 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)) 
+              (constant 
+                (numeric 
+                  (integer 
+                    (digit)))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)) 
+              (constant 
+                (numeric 
+                  (integer 
+                    (digit)))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)) 
+              (constant 
+                (numeric 
+                  (integer 
+                    (digit)))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)) 
+              (constant 
+                (numeric 
+                  (integer 
+                    (digit)))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)) 
+              (global_accum_name 
+                (name)) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (base_type)) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (name)) 
+              (local_accum_name 
+                (name)) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (base_type)) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (base_type) 
+                (base_type)) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (base_type) 
+                (base_type)) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (name) 
+                (digit) 
+                (digit) 
+                (digit) 
+                (name) 
+                (name)) 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (base_type) 
+                (name) 
+                (base_type) 
+                (name) 
+                (accum_type 
+                  (base_type)) 
+                (name) 
+                (accum_type) 
+                (name)) 
+              (local_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (decl_stmt 
+            (accum_decl_stmt 
+              (accum_type 
+                (name)) 
+              (local_accum_name 
+                (name)))))))))

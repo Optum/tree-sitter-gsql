@@ -1,3 +1,4 @@
+# tree-sitter-gsql
 <div id="top"></div>
 
 <!-- NOTES -->
@@ -18,8 +19,11 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
+GSQL grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
+
+The tree-sitter default bindings are available.
 
 
 <!-- PROJECT LOGO -->
@@ -214,16 +218,16 @@ Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
+[contributors-shield]: https://img.shields.io/github/contributors/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[contributors-url]: https://github.com/Optum/tree-sitter-gsql/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/tree-sitter-gsql.svg?style=for-the-badge
+[forks-url]: https://github.com/Optum/tree-sitter-gsql/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/tree-sitter-gsql.svg?style=for-the-badge
+[stars-url]: https://github.com/Optum/tree-sitter-gsql/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[issues-url]: https://github.com/Optum/tree-sitter-gsql/issues
+[license-shield]: https://img.shields.io/github/license/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[license-url]: https://github.com/Optum/tree-sitter-gsql/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png

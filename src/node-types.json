@@ -1,0 +1,2069 @@
+[
+  {
+    "type": "accum_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dml_sub_stmt_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "accum_decl_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "accum_type",
+          "named": true
+        },
+        {
+          "type": "constant",
+          "named": true
+        },
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "local_accum_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "accum_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "accum_type",
+          "named": true
+        },
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "aggregator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "arg_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assign_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "atomic_edge_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic_edge_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "atomic_edge_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "edge_set_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "atomic_vertex_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "vertex_set_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attr_accum_stmt",
+    "named": true,
+    "fields": {
+      "plus_equal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "+=",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "base_decl_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "base_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comparison_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comparison_operator",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "set_bag_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "numeric",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_query",
+    "named": true,
+    "fields": {
+      "graphName": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "queryName": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "query_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decl_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "accum_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "base_decl_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "disj_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic_edge_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_sub_case_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "dml_sub_stmt_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_sub_for_each_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dml_sub_stmt_list",
+          "named": true
+        },
+        {
+          "type": "for_each_control",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_sub_if_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "dml_sub_stmt_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_sub_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_stmt",
+          "named": true
+        },
+        {
+          "type": "attr_accum_stmt",
+          "named": true
+        },
+        {
+          "type": "dml_sub_case_stmt",
+          "named": true
+        },
+        {
+          "type": "dml_sub_for_each_stmt",
+          "named": true
+        },
+        {
+          "type": "dml_sub_if_stmt",
+          "named": true
+        },
+        {
+          "type": "dml_sub_while_stmt",
+          "named": true
+        },
+        {
+          "type": "func_call_stmt",
+          "named": true
+        },
+        {
+          "type": "g_accum_accum_stmt",
+          "named": true
+        },
+        {
+          "type": "l_accum_accum_stmt",
+          "named": true
+        },
+        {
+          "type": "local_var_decl_stmt",
+          "named": true
+        },
+        {
+          "type": "v_accum_func_call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_sub_stmt_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dml_sub_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_sub_while_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "dml_sub_stmt_list",
+          "named": true
+        },
+        {
+          "type": "simple_size",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "edge_set_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "aggregator",
+          "named": true
+        },
+        {
+          "type": "arg_list",
+          "named": true
+        },
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "constant",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "func_call_stmt",
+          "named": true
+        },
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "math_operator",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "name_dot",
+          "named": true
+        },
+        {
+          "type": "set_bag_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "file_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_each_control",
+    "named": true,
+    "fields": {
+      "iterationVar": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "global_accum_name",
+            "named": true
+          },
+          {
+            "type": "local_accum_name",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "keyVar": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "valueVar": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "set_bag_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "from_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "path_pattern",
+          "named": true
+        },
+        {
+          "type": "step",
+          "named": true
+        },
+        {
+          "type": "step_v2",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "func_call_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arg_list",
+          "named": true
+        },
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "local_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "g_accum_accum_stmt",
+    "named": true,
+    "fields": {
+      "plus_equal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "+=",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "global_accum_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "g_accum_assign_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "global_accum_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "global_accum_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gsql",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "create_query",
+          "named": true
+        },
+        {
+          "type": "interpret_query",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gsql_select_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "accum_clause",
+          "named": true
+        },
+        {
+          "type": "from_clause",
+          "named": true
+        },
+        {
+          "type": "gsql_select_clause",
+          "named": true
+        },
+        {
+          "type": "limit_clause",
+          "named": true
+        },
+        {
+          "type": "post_accum_clause",
+          "named": true
+        },
+        {
+          "type": "where_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gsql_select_clause",
+    "named": true,
+    "fields": {
+      "alias": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "integer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interpret_query",
+    "named": true,
+    "fields": {
+      "graphName": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "query_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "l_accum_accum_stmt",
+    "named": true,
+    "fields": {
+      "plus_equal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "+=",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "local_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "l_accum_assign_stmt",
+    "named": true,
+    "fields": {
+      "vertexAlias": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "local_accum_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "limit_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "local_accum_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "local_var_decl_stmt",
+    "named": true,
+    "fields": {
+      "varName": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "math_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "name_dot",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "local_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "numeric",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "real",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameter_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "query_params",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "path_edge_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic_edge_pattern",
+          "named": true
+        },
+        {
+          "type": "disj_pattern",
+          "named": true
+        },
+        {
+          "type": "path_edge_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "path_pattern",
+    "named": true,
+    "fields": {
+      "edgeAlias": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "path_edge_pattern",
+          "named": true
+        },
+        {
+          "type": "step_source_set",
+          "named": true
+        },
+        {
+          "type": "step_vertex_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "post_accum_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dml_sub_stmt_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "print_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "v_expr_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "print_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "file_path",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "print_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "query_body_stmts",
+          "named": true
+        },
+        {
+          "type": "typedef",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body_case_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "constant",
+          "named": true
+        },
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "query_body_stmts",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body_for_each_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "for_each_control",
+          "named": true
+        },
+        {
+          "type": "query_body_stmts",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body_if_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "query_body_stmts",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assign_stmt",
+          "named": true
+        },
+        {
+          "type": "decl_stmt",
+          "named": true
+        },
+        {
+          "type": "func_call_stmt",
+          "named": true
+        },
+        {
+          "type": "g_accum_accum_stmt",
+          "named": true
+        },
+        {
+          "type": "g_accum_assign_stmt",
+          "named": true
+        },
+        {
+          "type": "gsql_select_block",
+          "named": true
+        },
+        {
+          "type": "l_accum_assign_stmt",
+          "named": true
+        },
+        {
+          "type": "print_stmt",
+          "named": true
+        },
+        {
+          "type": "query_body_case_stmt",
+          "named": true
+        },
+        {
+          "type": "query_body_for_each_stmt",
+          "named": true
+        },
+        {
+          "type": "query_body_if_stmt",
+          "named": true
+        },
+        {
+          "type": "query_body_while_stmt",
+          "named": true
+        },
+        {
+          "type": "v_set_var_decl_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body_stmts",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "query_body_stmt",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_body_while_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "query_body_stmts",
+          "named": true
+        },
+        {
+          "type": "simple_size",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_param",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "query_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "query_param",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "real",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "seed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "seed_set",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "seed",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_bag_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arg_list",
+          "named": true
+        },
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "name_dot",
+          "named": true
+        },
+        {
+          "type": "set_bag_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simple_set",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "simple_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "simple_size",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "step_edge_set",
+          "named": true
+        },
+        {
+          "type": "step_source_set",
+          "named": true
+        },
+        {
+          "type": "step_vertex_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step_edge_set",
+    "named": true,
+    "fields": {
+      "edgeAlias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "step_edge_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step_edge_types",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic_edge_type",
+          "named": true
+        },
+        {
+          "type": "edge_set_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step_source_set",
+    "named": true,
+    "fields": {
+      "vertexAlias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "vertexSetName": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "step_v2",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "step_edge_set",
+          "named": true
+        },
+        {
+          "type": "step_vertex_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step_vertex_set",
+    "named": true,
+    "fields": {
+      "vertexAlias": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "step_vertex_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "step_vertex_types",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atomic_vertex_type",
+          "named": true
+        },
+        {
+          "type": "vertex_set_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tuple_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "base_type",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_fields",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "tuple_field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typedef",
+    "named": true,
+    "fields": {
+      "tupleType": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "tuple_fields",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "v_accum_func_call",
+    "named": true,
+    "fields": {
+      "funcName": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "localAccumName": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "local_accum_name",
+            "named": true
+          }
+        ]
+      },
+      "vertexAlias": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "arg_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "v_expr_set",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "v_set_proj",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "v_set_proj",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "v_set_var_decl_stmt",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gsql_select_block",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "seed_set",
+          "named": true
+        },
+        {
+          "type": "simple_set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "vertex_set_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "global_accum_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "where_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": " | ",
+    "named": false
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "+=",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": ".*",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "@@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "_",
+    "named": false
+  },
+  {
+    "type": "all",
+    "named": false
+  },
+  {
+    "type": "block_comment",
+    "named": true
+  },
+  {
+    "type": "digit",
+    "named": true
+  },
+  {
+    "type": "line_comment",
+    "named": true
+  },
+  {
+    "type": "name",
+    "named": true
+  },
+  {
+    "type": "newline",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
