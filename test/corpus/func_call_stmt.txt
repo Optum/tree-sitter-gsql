@@ -1,0 +1,88 @@
+===
+Func call
+===
+CREATE OR REPLACE QUERY myQuery()  FOR GRAPH MyGraph {
+    F();
+    G(a1,a2);
+    func<INT,BOOL>(a1, a2, a3, a4);
+
+    a.@l.f();
+    a.@l.f(a1,a2);
+    @@l.f();
+    @@l.f(a1,a2);
+}
+
+---
+
+(gsql
+  (create_query queryName:
+    (name)
+    (parameter_list) graphName:
+    (name)
+    (query_body
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (name))))
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (name)
+            (arg_list
+              (expr
+                (name))
+              (expr
+                (name))))))
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (name)
+            (base_type)
+            (base_type)
+            (arg_list
+              (expr
+                (name))
+              (expr
+                (name))
+              (expr
+                (name))
+              (expr
+                (name))))))
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (name)
+            (ERROR
+              (local_accum_name
+                (name)))
+            (name))))
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (name)
+            (ERROR
+              (local_accum_name
+                (name)))
+            (name)
+            (arg_list
+              (expr
+                (name))
+              (expr
+                (name))))))
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (global_accum_name
+              (name))
+            (name))))
+      (query_body_stmts
+        (query_body_stmt
+          (func_call_stmt
+            (global_accum_name
+              (name))
+            (name)
+            (arg_list
+              (expr
+                (name))
+              (expr
+                (name)))))))))

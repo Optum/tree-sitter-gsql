@@ -1,0 +1,83 @@
+===
+Print
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    PRINT 1+2;
+    Print V, W;
+    PRINT V[V.attr1 as attr1, V.attr2];
+    Print V WHERE X > 1;
+    Print V to_csv fName;
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (print_stmt 
+            (print_expr 
+              (expr 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit))))) 
+                (math_operator) 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit)))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (print_stmt 
+            (print_expr 
+              (expr 
+                (name))) 
+            (print_expr 
+              (expr 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (print_stmt 
+            (print_expr 
+              (v_expr_set 
+                (expr 
+                  (name)) 
+                (v_set_proj 
+                  (expr 
+                    (name_dot 
+                      (name) 
+                      (name))) 
+                  (name)) 
+                (v_set_proj 
+                  (expr 
+                    (name_dot 
+                      (name) 
+                      (name))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (print_stmt 
+            (print_expr 
+              (expr 
+                (name))) 
+            (condition 
+              (expr 
+                (name)) 
+              (comparison_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (print_stmt 
+            (print_expr 
+              (expr 
+                (name))) 
+            (name)))))))

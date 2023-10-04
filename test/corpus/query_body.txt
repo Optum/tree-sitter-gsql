@@ -1,0 +1,27 @@
+=====
+Typedef Tuple
+=====
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    TYPEDEF TUPLE <INT i, STRING j, DATETIME d> myType;
+}
+
+---
+
+(gsql 
+    (create_query 
+        queryName: (name) 
+        (parameter_list) 
+        graphName: (name) 
+        (query_body
+            (typedef 
+                (tuple_fields 
+                    (tuple_field (base_type) (name)) 
+                    (tuple_field (base_type) (name)) 
+                    (tuple_field (base_type) (name))
+                ) 
+                tupleType: (name)
+            )
+        )
+    )
+)

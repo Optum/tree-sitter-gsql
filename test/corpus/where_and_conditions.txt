@@ -1,0 +1,337 @@
+===
+Where
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE true;
+}
+
+---
+
+(gsql
+  (create_query
+    (name)
+    (parameter_list)
+    (name)
+    (query_body
+      (query_body_stmts
+        (query_body_stmt
+          (gsql_select_block
+            (gsql_select_clause
+              (name)
+              (name))
+            (from_clause
+              (path_pattern
+                (step_source_set
+                  (name)
+                  (name))))
+                  (where_clause (condition))))))))
+
+===
+Comparison
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE x >= @@glb;
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (expr 
+                  (name)) 
+                (comparison_operator) 
+                (expr 
+                  (global_accum_name 
+                    (name)))))))))))
+
+===
+Not In
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE x not in s.@set ;
+}
+
+---
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (expr 
+                  (name)) 
+                (set_bag_expr 
+                  (name_dot 
+                    (name) 
+                    (local_accum_name 
+                      (name))))))))))))
+===
+Is Not null 
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE x is not null;
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (expr 
+                  (name))))))))))
+
+===
+Between
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE x BETWEEN x-2 AND 5;
+}
+
+---
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (expr 
+                  (name)) 
+                (expr 
+                  (expr 
+                    (name)) 
+                  (math_operator) 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit)))))) 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit)))))))))))))
+
+===
+Not
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE NOT FALSE;
+}
+
+---
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (condition)))))))))
+
+===
+Where AND
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE true AND x < 5;
+}
+
+---
+
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (condition) 
+                (condition 
+                  (expr 
+                    (name)) 
+                  (comparison_operator) 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit))))))))))))))
+
+
+===
+Where OR
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE s.@thing OR x < 5;
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (where_clause 
+              (condition 
+                (condition 
+                  (expr 
+                    (name_dot 
+                      (name) 
+                      (local_accum_name 
+                        (name))))) 
+                (condition 
+                  (expr 
+                    (name)) 
+                  (comparison_operator) 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit))))))))))))))
+
+===
+Not like
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s 
+          WHERE "asdf" not like "fdsa";
+}
+
+---
+(gsql 
+(create_query 
+  (name) 
+  (parameter_list) 
+  (name) 
+  (query_body 
+    (query_body_stmts 
+      (query_body_stmt 
+        (gsql_select_block 
+          (gsql_select_clause 
+            (name) 
+            (name)) 
+          (from_clause 
+            (path_pattern 
+              (step_source_set 
+                (name) 
+                (name)))) 
+          (where_clause 
+            (condition 
+              (expr 
+                (constant 
+                  (string_literal))) 
+              (expr 
+                (constant 
+                  (string_literal)))))))))))

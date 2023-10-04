@@ -1,0 +1,325 @@
+===
+Assign
+===
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s
+          ACCUM x = 10,
+                y = x;
+
+}
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)))) 
+            (accum_clause 
+              (dml_sub_stmt_list 
+                (dml_sub_stmt 
+                  (assign_stmt 
+                    (name) 
+                    (expr 
+                      (constant 
+                        (numeric 
+                          (integer 
+                            (digit) 
+                            (digit))))))) 
+                (dml_sub_stmt 
+                  (assign_stmt 
+                    (name) 
+                    (expr 
+                      (name))))))))))))
+
+===
+l_accum_assign_stmt
+===
+CREATE OR REPLACE QUERY myQuery()  FOR GRAPH MyGraph {
+    v.@ac1 = n;
+    v.@ac1 += @@ac;
+    v.@ac1 = name.name;
+    v.@ac1 = n.@n.size();
+    v.@ac1 = COALESCE ();
+
+    v.@ac1 = ISEMPTY ();
+    v.@ac1 = 1 + 2 / 3;
+    v.@ac1 = (1.2 - 3) * 5;
+    v.@ac1 = getvid(x);
+}
+---
+
+(gsql 
+  (create_query queryName: 
+    (name) 
+    (parameter_list) graphName: 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (name))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (name_dot 
+                (name) 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (set_bag_expr 
+                (name_dot 
+                  (name) 
+                  (local_accum_name 
+                    (name))) 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr)))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (set_bag_expr 
+                (MISSING name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (expr 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit))))) 
+                (math_operator) 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit)))))) 
+              (math_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (expr 
+                (expr 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (real 
+                          (digit) 
+                          (digit))))) 
+                  (math_operator) 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit))))))) 
+              (math_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (l_accum_assign_stmt vertexAlias: 
+            (name) 
+            (local_accum_name 
+              (name)) 
+            (expr 
+              (func_call_stmt 
+                (name) 
+                (arg_list 
+                  (expr 
+                    (name)))))))))))
+
+
+===
+g_accum_assign_stmt
+===
+
+CREATE OR REPLACE QUERY myQuery()  FOR GRAPH MyGraph {
+    @@ac1 = n;
+    @@ac1 += @@ac;
+    @@ac1 = name.name;
+    @@ac1 = n.@n.size();
+    @@ac1 = COALESCE();
+    @@ac1 = ISEMPTY(n);
+    @@ac1 = 1 + 2 / 3;
+    @@ac1 = (1.2 - 3) * 5;
+    @@ac1 = getvid(x);
+}
+
+---
+
+(gsql 
+  (create_query queryName: 
+    (name) 
+    (parameter_list) graphName: 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (name))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (global_accum_name 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (name_dot 
+                (name) 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (set_bag_expr 
+                (name_dot 
+                  (name) 
+                  (local_accum_name 
+                    (name))) 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr)))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (set_bag_expr 
+                (name)))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (expr 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit))))) 
+                (math_operator) 
+                (expr 
+                  (constant 
+                    (numeric 
+                      (integer 
+                        (digit)))))) 
+              (math_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (expr 
+                (expr 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (real 
+                          (digit) 
+                          (digit))))) 
+                  (math_operator) 
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit))))))) 
+              (math_operator) 
+              (expr 
+                (constant 
+                  (numeric 
+                    (integer 
+                      (digit))))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (g_accum_assign_stmt 
+            (global_accum_name 
+              (name)) 
+            (expr 
+              (func_call_stmt 
+                (name) 
+                (arg_list 
+                  (expr 
+                    (name)))))))))))

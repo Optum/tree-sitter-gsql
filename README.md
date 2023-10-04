@@ -1,3 +1,5 @@
+# tree-sitter-gsql
+
 <div id="top"></div>
 
 <!-- NOTES -->
@@ -13,42 +15,43 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
+<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
+GSQL grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
+
+The tree-sitter default bindings are available.
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <!-- <a href="https://github.com/Optum/tree-sitter-gsql">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
+  </a> -->
+<!-- <h3 align="center">project_title</h3> -->
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <!-- project_description -->
+    <!-- <br /> -->
+    <!-- <a href="https://github.com/Optum/tree-sitter-gsql"><strong>Explore the docs »</strong></a> -->
+    <!-- <br /> -->
+    <!-- <br /> -->
+    <!-- <a href="https://github.com/Optum/tree-sitter-gsql">View Demo</a> -->
+    <!-- · -->
+    <a href="https://github.com/Optum/tree-sitter-gsql/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/Optum/tree-sitter-gsql/issues">Request Feature</a>
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
-<details>
+<!-- <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -71,38 +74,34 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
-
-
+</details> -->
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- ## About The Project -->
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `Optum`, `tree-sitter-gsql`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description` -->
 
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
+<!-- ### Built With -->
 
-### Built With
+<!-- - [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Vue.js](https://vuejs.org/)
+- [Angular](https://angular.io/)
+- [Svelte](https://svelte.dev/)
+- [Laravel](https://laravel.com)
+- [Bootstrap](https://getbootstrap.com)
+- [JQuery](https://jquery.com) -->
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- GETTING STARTED -->
-## Getting Started
+
+<!-- ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
@@ -110,7 +109,8 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+
+- npm
   ```sh
   npm install npm@latest -g
   ```
@@ -120,7 +120,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Optum/tree-sitter-gsql.git
    ```
 3. Install NPM packages
    ```sh
@@ -131,36 +131,33 @@ This is an example of how to list things you need to use the software and how to
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- USAGE EXAMPLES -->
-## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<!-- ## Usage
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+See the tree-sitter [Useing Parsers](https://tree-sitter.github.io/tree-sitter/using-parsers) docs.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
+nothing planned at this time
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+<!-- - [] Feature 1 -->
+<!-- - [] Feature 2
+- [] Feature 3
+    - [] Nested Feature -->
+
+See the [open issues](https://github.com/Optum/tree-sitter-gsql/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -176,54 +173,46 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
+
 ## License
 
-Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MAINTAINERS -->
+
 ## Maintainers
 
-- Full Name 1
-  - GitHub Enterprise: [github_username](https://github.com/username1)
-  - Email: email1@email.com
-- Full Name 2
-  - GitHub Enterprise: [github_username](https://github.com/username2)
-  - Email: email2@email.com
+- Robert Rossmiller
+  - GitHub Enterprise: [rrossmiller](https://github.com/rrossmiller)
+  <!-- - Email: email1@email.com -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- ACKNOWLEDGMENTS -->
+<!-- ACKNOWLEDGMENTS
 ## Acknowledgments
 
 * []()
 * []()
-* []()
+* []() -->
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+
+[contributors-shield]: https://img.shields.io/github/contributors/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[contributors-url]: https://github.com/Optum/tree-sitter-gsql/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[forks-url]: https://github.com/Optum/tree-sitter-gsql/network/members
+[stars-shield]: https://img.shields.io/github/stars/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[stars-url]: https://github.com/Optum/tree-sitter-gsql/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[issues-url]: https://github.com/Optum/tree-sitter-gsql/issues
+[license-shield]: https://img.shields.io/github/license/Optum/tree-sitter-gsql.svg?style=for-the-badge
+[license-url]: https://github.com/Optum/tree-sitter-gsql/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png

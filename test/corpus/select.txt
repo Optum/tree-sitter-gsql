@@ -1,0 +1,208 @@
+===
+Simple Select
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s;
+}
+
+---
+
+(gsql
+  (create_query
+    (name)
+    (parameter_list)
+    (name)
+    (query_body
+      (query_body_stmts
+        (query_body_stmt
+          (gsql_select_block
+            (gsql_select_clause
+              (name)
+              (name))
+            (from_clause
+              (path_pattern
+                (step_source_set
+                  (name)
+                  (name))))))))))
+
+===
+Select with Edge
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph {
+    V = SELECT s FROM S:s -(E:e)- T:t;
+    V = SELECT s FROM S:s -(E:e)-> (T|U):t;
+}
+
+---
+(gsql
+  (create_query
+    (name)
+    (parameter_list)
+    (name)
+    (query_body
+      (query_body_stmts
+        (query_body_stmt
+          (gsql_select_block
+            (gsql_select_clause
+              (name)
+              (name))
+            (from_clause
+              (step
+                (step_source_set
+                  (name)
+                  (name))
+                (step_edge_set
+                  (step_edge_types
+                    (atomic_edge_type
+                      (edge_set_type
+                        (name))))
+                  (name))
+                (step_vertex_set
+                  (step_vertex_types
+                    (atomic_vertex_type
+                      (vertex_set_type
+                        (name))))
+                  (name)))))))
+      (query_body_stmts
+        (query_body_stmt
+          (gsql_select_block
+            (gsql_select_clause
+              (name)
+              (name))
+            (from_clause
+              (step
+                (step_source_set
+                  (name)
+                  (name))
+                (step_edge_set
+                  (step_edge_types
+                    (atomic_edge_type
+                      (edge_set_type
+                        (name))))
+                  (name))
+                (step_vertex_set
+                  (step_vertex_types
+                    (vertex_set_type
+                      (name))
+                    (vertex_set_type
+                      (name)))
+                  (name))))))))))
+===
+Select Path Pattern
+===
+
+CREATE QUERY myQuery() FOR GRAPH MyGraph SYNTAX V2{
+    V = SELECT s FROM S:s -(_)- T:t;
+    V = SELECT s FROM S -(E>:e)- T:t;
+    V = SELECT s FROM S:s -(<E:e)- T:t;
+    V = SELECT s FROM S:s -(<E:e)- -(F>:f)- T:t;
+}
+
+---
+
+(gsql 
+  (create_query 
+    (name) 
+    (parameter_list) 
+    (name) 
+    (query_body 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (step 
+                (step_source_set 
+                  (name) 
+                  (name)) 
+                (step_edge_set 
+                  (step_edge_types 
+                    (atomic_edge_type))) 
+                (step_vertex_set 
+                  (step_vertex_types 
+                    (atomic_vertex_type 
+                      (vertex_set_type 
+                        (name)))) 
+                  (name))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name)) 
+                (path_edge_pattern 
+                  (atomic_edge_pattern 
+                    (atomic_edge_type 
+                      (edge_set_type 
+                        (name))))) 
+                (name) 
+                (step_vertex_set 
+                  (step_vertex_types 
+                    (atomic_vertex_type 
+                      (vertex_set_type 
+                        (name)))) 
+                  (name))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)) 
+                (path_edge_pattern 
+                  (atomic_edge_pattern 
+                    (atomic_edge_type 
+                      (edge_set_type 
+                        (name))))) 
+                (name) 
+                (step_vertex_set 
+                  (step_vertex_types 
+                    (atomic_vertex_type 
+                      (vertex_set_type 
+                        (name)))) 
+                  (name))))))) 
+      (query_body_stmts 
+        (query_body_stmt 
+          (gsql_select_block 
+            (gsql_select_clause 
+              (name) 
+              (name)) 
+            (from_clause 
+              (path_pattern 
+                (step_source_set 
+                  (name) 
+                  (name)) 
+                (path_edge_pattern 
+                  (atomic_edge_pattern 
+                    (atomic_edge_type 
+                      (edge_set_type 
+                        (name))))) 
+                (name) 
+                (step_vertex_set 
+                  (step_vertex_types 
+                    (atomic_vertex_type 
+                      (MISSING "_")))) 
+                (path_edge_pattern 
+                  (atomic_edge_pattern 
+                    (atomic_edge_type 
+                      (edge_set_type 
+                        (name))))) 
+                (name) 
+                (step_vertex_set 
+                  (step_vertex_types 
+                    (atomic_vertex_type 
+                      (vertex_set_type 
+                        (name)))) 
+                  (name))))))))))

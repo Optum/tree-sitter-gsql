@@ -1,0 +1,47 @@
+=====
+INTERPRET Query
+=====
+
+INTERPRET QUERY () FOR GRAPH MyGraph {}
+
+---
+
+(gsql 
+    (interpret_query 
+        (parameter_list) 
+        graphName: (name) 
+        (query_body)))
+
+=====
+INTERPRET Query with Params
+=====
+
+INTERPRET QUERY (INT i, STRING j, DATETIME d) FOR GRAPH MyGraph {}
+
+---
+
+(gsql 
+    (interpret_query 
+        (parameter_list 
+            (query_params 
+                (query_param (base_type) (name))
+                (query_param (base_type) (name))
+                (query_param (base_type) (name))))
+        graphName: (name) 
+        (query_body))) 
+
+
+=====
+INTERPRET Query SYNTAX V2
+=====
+
+INTERPRET QUERY () FOR GRAPH MyGraph SYNTAX V2 {}
+
+---
+
+(gsql 
+    (interpret_query 
+        (parameter_list)
+        graphName: (name) 
+        (query_body))) 
+

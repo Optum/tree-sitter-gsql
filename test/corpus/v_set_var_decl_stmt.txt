@@ -1,0 +1,117 @@
+===
+Vertex Set Var Decl Stmt: seed_set
+===
+
+CREATE OR REPLACE QUERY myQuery() FOR GRAPH MyGraph {
+    Src = {_};
+    Src = {ANY};
+    Src = {V.*, S.*, T};
+    Src = {@@glbl};
+    Src = {V.*};
+    Src = {a, b};
+}
+
+---
+
+(gsql
+  (create_query queryName:
+    (name)
+    (parameter_list) graphName:
+    (name)
+    (query_body
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (seed_set
+              (seed)))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (seed_set
+              (seed)))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (seed_set
+              (seed (name))
+              (seed (name))
+              (seed (name))))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (seed_set
+              (seed
+                (global_accum_name
+                  (name)))))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (seed_set
+              (seed
+                (name))))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (seed_set
+              (seed
+                (name))
+              (seed
+                (name))))))))
+)
+
+===
+Vertex Set Var Decl Stmt: simple_set
+===
+
+CREATE OR REPLACE QUERY myQuery() FOR GRAPH MyGraph {
+    Src = (x);
+    Src = (A UNION B);
+    Src = A UNION B INTERSECT C MINUS D;
+}
+
+---
+
+(gsql
+  (create_query queryName:
+    (name)
+    (parameter_list) graphName:
+    (name)
+    (query_body
+      (query_body_stmts
+        (query_body_stmt
+          (assign_stmt
+            (name)
+            (expr
+              (expr
+                (name))))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (simple_set
+              (simple_set
+                (simple_set
+                  (name))
+                (simple_set
+                  (name)))))))
+      (query_body_stmts
+        (query_body_stmt
+          (v_set_var_decl_stmt
+            (name)
+            (simple_set
+              (simple_set
+                (simple_set
+                  (simple_set
+                    (name))
+                  (simple_set
+                    (name)))
+                (simple_set
+                  (name)))
+              (simple_set
+                (name))))))))) 

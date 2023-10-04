@@ -1,0 +1,37 @@
+{
+    "name": "tree-sitter-gsql",
+    "version": "0.0.5",
+    "description": "gsql grammar for tree-sitter",
+    "main": "bindings/node",
+    "keywords": [
+        "parsing",
+        "incremental",
+        "gsql",
+        "tigergraph"
+    ],
+    "author": "Rob Rossmiller",
+    "license": "Apache-2.0",
+    "private": false,
+    "scripts": {
+        "build": "./build.sh",
+        "test": "tree-sitter test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Optum/tree-sitter-gsql"
+    },
+    "dependencies": {
+        "nan": "^2.18.0"
+    },
+    "tree-sitter": [
+        {
+            "scope": "source.gsql",
+            "file-types": [
+                "gsql"
+            ]
+        }
+    ],
+    "devDependencies": {
+        "tree-sitter-cli": "^0.20.8"
+    }
+}

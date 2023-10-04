@@ -1,1 +1,1 @@
-Add attributions here.
+This software uses the tree-sitter library (https://tree-sitter.github.io/tree-sitter/)
