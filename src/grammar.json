@@ -253,11 +253,8 @@
                   "value": "="
                 },
                 {
-                  "type": "REPEAT1",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "digit"
-                  }
+                  "type": "SYMBOL",
+                  "name": "numeric"
                 }
               ]
             },
@@ -4398,11 +4395,8 @@
           ]
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "digit"
-          }
+          "type": "SYMBOL",
+          "name": "digit"
         }
       ]
     },
@@ -4458,11 +4452,8 @@
               ]
             },
             {
-              "type": "REPEAT1",
-              "content": {
-                "type": "SYMBOL",
-                "name": "digit"
-              }
+              "type": "SYMBOL",
+              "name": "digit"
             },
             {
               "type": "SEQ",
@@ -4472,11 +4463,8 @@
                   "value": "."
                 },
                 {
-                  "type": "REPEAT1",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "digit"
-                  }
+                  "type": "SYMBOL",
+                  "name": "digit"
                 }
               ]
             }
@@ -4486,7 +4474,7 @@
     },
     "digit": {
       "type": "PATTERN",
-      "value": "\\d"
+      "value": "\\d+"
     },
     "string_literal": {
       "type": "CHOICE",

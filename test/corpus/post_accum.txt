@@ -35,7 +35,6 @@ CREATE QUERY myQuery() FOR GRAPH MyGraph {
                       (constant 
                         (numeric 
                           (integer 
-                            (digit) 
                             (digit))))))) 
                 (dml_sub_stmt 
                   (assign_stmt 
@@ -497,7 +496,6 @@ CREATE QUERY myQuery() FOR GRAPH MyGraph {
                             (integer 
                               (digit)))))) 
                     (simple_size 
-                      (digit) 
                       (digit)) 
                     (dml_sub_stmt_list 
                       (dml_sub_stmt 

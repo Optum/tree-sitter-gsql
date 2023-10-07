@@ -849,7 +849,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -1391,11 +1391,11 @@
           "named": true
         },
         {
-          "type": "digit",
+          "type": "name",
           "named": true
         },
         {
-          "type": "name",
+          "type": "numeric",
           "named": true
         }
       ]

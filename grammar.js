@@ -14,11 +14,10 @@ module.exports = grammar({
     rules: {
         gsql: $ => repeat($._definition),
 
-        _definition: $ =>
-            choice(
+        _definition: $ => choice(
                 $.create_query,
                 $.interpret_query
-            ),
+        ),
 
         //tested
         create_query: $ => seq(
@@ -73,7 +72,7 @@ module.exports = grammar({
         query_param: $ => seq(
             $._type,
             $.name,
-            optional(seq("=", repeat1($.digit)))
+            optional(seq("=", $.numeric))
         ),
 
         //tested
@@ -789,15 +788,15 @@ module.exports = grammar({
 
         integer: $ => seq(
             optional('-'),
-            repeat1($.digit)
+            $.digit
         ),
 
         real: $ => choice(
             seq(optional("-"), seq(".", repeat1($.digit))),
-            seq(optional("-"), repeat1($.digit), seq(".", repeat1($.digit))),
+            seq(optional("-"), $.digit, seq(".", $.digit)),
         ),
 
-        digit: $ => /\d/,
+        digit: $ => /\d+/,
 
         string_literal: $ => choice(
             seq(
