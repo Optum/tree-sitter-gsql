@@ -297,15 +297,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "parameter_list",
-          "named": true
-        },
-        {
-          "type": "query_body",
           "named": true
         }
       ]
@@ -779,6 +775,10 @@
         {
           "type": "interpret_query",
           "named": true
+        },
+        {
+          "type": "query_body",
+          "named": true
         }
       ]
     }
@@ -875,15 +875,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "parameter_list",
-          "named": true
-        },
-        {
-          "type": "query_body",
           "named": true
         }
       ]

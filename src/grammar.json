@@ -9,15 +9,24 @@
       }
     },
     "_definition": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "create_query"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "create_query"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "interpret_query"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
-          "name": "interpret_query"
+          "name": "query_body"
         }
       ]
     },
@@ -113,10 +122,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "query_body"
         }
       ]
     },
@@ -171,10 +176,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "query_body"
         }
       ]
     },

@@ -13,34 +13,34 @@ CREATE QUERY myQuery() FOR GRAPH MyGraph {
   (create_query 
     (name) 
     (parameter_list) 
-    (name) 
-    (query_body 
-      (query_body_stmts 
-        (query_body_stmt 
-          (gsql_select_block 
-            (gsql_select_clause 
-              (name) 
-              (name)) 
-            (from_clause 
-              (path_pattern 
-                (step_source_set 
+    (name))
+  (query_body 
+    (query_body_stmts 
+      (query_body_stmt 
+        (gsql_select_block 
+          (gsql_select_clause 
+            (name) 
+            (name)) 
+          (from_clause 
+            (path_pattern 
+              (step_source_set 
+                (name) 
+                (name)))) 
+          (accum_clause 
+            (dml_sub_stmt_list 
+              (dml_sub_stmt 
+                (assign_stmt 
                   (name) 
-                  (name)))) 
-            (accum_clause 
-              (dml_sub_stmt_list 
-                (dml_sub_stmt 
-                  (assign_stmt 
-                    (name) 
-                    (expr 
-                      (constant 
-                        (numeric 
-                          (integer 
-                            (digit))))))) 
-                (dml_sub_stmt 
-                  (assign_stmt 
-                    (name) 
-                    (expr 
-                      (name))))))))))))
+                  (expr 
+                    (constant 
+                      (numeric 
+                        (integer 
+                          (digit))))))) 
+              (dml_sub_stmt 
+                (assign_stmt 
+                  (name) 
+                  (expr 
+                    (name)))))))))))
 
 ===
 l_accum_assign_stmt

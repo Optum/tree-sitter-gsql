@@ -14,9 +14,12 @@ module.exports = grammar({
     rules: {
         gsql: $ => repeat($._definition),
 
-        _definition: $ => choice(
+        _definition: $ => seq(
+            choice(
                 $.create_query,
                 $.interpret_query
+            ),
+            $.query_body
         ),
 
         //tested
@@ -35,7 +38,6 @@ module.exports = grammar({
             optional(
                 seq(caseInsensitive("syntax"), caseInsensitive("v2"))
             ),
-            $.query_body
         ),
 
 
@@ -50,7 +52,6 @@ module.exports = grammar({
             optional(
                 seq(caseInsensitive("syntax"), caseInsensitive("v2"))
             ),
-            $.query_body
         ),
 
         //tested
