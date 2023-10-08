@@ -20,5 +20,6 @@ if [[ $1 = 'i' ]]; then
     # reset grammar.js to grammar with case insensitive function
     echo
     echo 'reset grammar'
+    mv grammar.js grammar_i.js
     mv grammar_case_insensitive.js grammar.js
 fi

@@ -2015,6 +2015,10 @@
     "named": false
   },
   {
+    "type": "V2",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -2049,6 +2053,10 @@
   {
     "type": "newline",
     "named": true
+  },
+  {
+    "type": "v2",
+    "named": false
   },
   {
     "type": "{",

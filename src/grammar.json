@@ -113,8 +113,17 @@
                   "value": "[sS][yY][nN][tT][aA][xX]"
                 },
                 {
-                  "type": "PATTERN",
-                  "value": "[vV][22]"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "V2"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "v2"
+                    }
+                  ]
                 }
               ]
             },
@@ -2793,7 +2802,7 @@
           "members": [
             {
               "type": "PATTERN",
-              "value": "[sS][uU][mM][AA][cC][cC][uU][mM]"
+              "value": "[sS][uU][mM][aA][cC][cC][uU][mM]"
             },
             {
               "type": "STRING",

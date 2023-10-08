@@ -36,7 +36,7 @@ module.exports = grammar({
             caseInsensitive("graph"),
             field("graphName", $.name),
             optional(
-                seq(caseInsensitive("syntax"), caseInsensitive("v2"))
+                seq(caseInsensitive("syntax"), choice("V2","v2"))
             ),
         ),
 
@@ -602,7 +602,7 @@ module.exports = grammar({
 
         //tested
         accum_type: $ => choice(
-            seq( caseInsensitive("sumAccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double"), caseInsensitive("string")), ">"),
+            seq( caseInsensitive("sumaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double"), caseInsensitive("string")), ">"),
             seq(caseInsensitive("maxaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double")), ">"),
             seq(caseInsensitive("minaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double")), ">"),
             caseInsensitive("avgaccum"),
