@@ -1,3 +1,5 @@
+TODO
+// replace caseInsensitive with the resulting regex in case.py -> make it a helper, not a converter
 module.exports = grammar({
     name: "gsql",
     extras: $ => [
@@ -36,7 +38,7 @@ module.exports = grammar({
             caseInsensitive("graph"),
             field("graphName", $.name),
             optional(
-                seq(caseInsensitive("syntax"), choice("V2","v2"))
+                seq(caseInsensitive("syntax"), choice("V2", "v2"))
             ),
         ),
 
@@ -242,9 +244,9 @@ module.exports = grammar({
             $.gsql_select_clause,
             $.from_clause,
             // optional($.sample_clause),
-            optional($.where_clause), 
-            optional($.accum_clause), 
-            repeat($.post_accum_clause), 
+            optional($.where_clause),
+            optional($.accum_clause),
+            repeat($.post_accum_clause),
             // optional($.having_clause),
             // optional($.order_clause),
             optional($.limit_clause),
@@ -283,15 +285,15 @@ module.exports = grammar({
         ),
 
         dml_sub_stmt: $ => choice(
-            $.assign_stmt, 
+            $.assign_stmt,
             $.func_call_stmt,
             $.g_accum_accum_stmt,
             $.l_accum_accum_stmt,
-            $.attr_accum_stmt, 
+            $.attr_accum_stmt,
             $.v_accum_func_call,
             $.local_var_decl_stmt,
             $.dml_sub_case_stmt,
-            $.dml_sub_if_stmt, 
+            $.dml_sub_if_stmt,
             $.dml_sub_while_stmt,
             $.dml_sub_for_each_stmt,
             // caseInsensitive("break"),
@@ -337,23 +339,23 @@ module.exports = grammar({
             $.expr
         ),
 
-        dml_sub_if_stmt: $ =>  
+        dml_sub_if_stmt: $ =>
             seq(
-            caseInsensitive("if"),
-            $.condition,
-            caseInsensitive("then"),
-            $.dml_sub_stmt_list,
-            repeat(prec.left(1,
-                seq(
-                    caseInsensitive("else"),
-                    caseInsensitive("if"), 
-                    $.condition, 
-                    caseInsensitive("then"), 
-                    $.dml_sub_stmt_list
-                ))),
-            optional(seq(caseInsensitive("else"), $.dml_sub_stmt_list)),
-            caseInsensitive("end")
-        ),
+                caseInsensitive("if"),
+                $.condition,
+                caseInsensitive("then"),
+                $.dml_sub_stmt_list,
+                repeat(prec.left(1,
+                    seq(
+                        caseInsensitive("else"),
+                        caseInsensitive("if"),
+                        $.condition,
+                        caseInsensitive("then"),
+                        $.dml_sub_stmt_list
+                    ))),
+                optional(seq(caseInsensitive("else"), $.dml_sub_stmt_list)),
+                caseInsensitive("end")
+            ),
 
         dml_sub_case_stmt: $ => //choice(
             seq(
@@ -362,13 +364,13 @@ module.exports = grammar({
                 optional(seq(caseInsensitive("else"), $.dml_sub_stmt_list)),
                 caseInsensitive("end")
             ),
-            // seq(
-            //     caseInsensitive("case"),
-            //     $.expr,
-            //     repeat1(seq(caseInsensitive("when"), $.constant, caseInsensitive("then"), $.dml_sub_stmt_list)),
-            //     optional(seq(caseInsensitive("else"), $.dml_sub_stmt_list)),
-            //     caseInsensitive("end")
-            // )
+        // seq(
+        //     caseInsensitive("case"),
+        //     $.expr,
+        //     repeat1(seq(caseInsensitive("when"), $.constant, caseInsensitive("then"), $.dml_sub_stmt_list)),
+        //     optional(seq(caseInsensitive("else"), $.dml_sub_stmt_list)),
+        //     caseInsensitive("end")
+        // )
         //),
 
         dml_sub_while_stmt: $ => seq(
@@ -394,8 +396,8 @@ module.exports = grammar({
                     field("iterationVar", choice($.name, $.local_accum_name, $.global_accum_name)),
                     seq("(", field("keyVar", $.name), repeat1(seq(",", field("valueVar", $.name))), ")")
                 ),
-                seq(choice(caseInsensitive("in"), ":"), 
-                $.set_bag_expr)
+                seq(choice(caseInsensitive("in"), ":"),
+                    $.set_bag_expr)
             ),
             seq(
                 field("iterationVar", choice($.name, $.local_accum_name, $.global_accum_name)),
@@ -602,7 +604,7 @@ module.exports = grammar({
 
         //tested
         accum_type: $ => choice(
-            seq( caseInsensitive("sumaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double"), caseInsensitive("string")), ">"),
+            seq(caseInsensitive("sumaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double"), caseInsensitive("string")), ">"),
             seq(caseInsensitive("maxaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double")), ">"),
             seq(caseInsensitive("minaccum"), "<", choice(caseInsensitive("int"), caseInsensitive("float"), caseInsensitive("double")), ">"),
             caseInsensitive("avgaccum"),
@@ -855,6 +857,7 @@ module.exports = grammar({
     },
 });
 
+//todo return matched text instead of regex?
 function caseInsensitive(keyword) {
     return new RegExp(
         keyword
