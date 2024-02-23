@@ -1,5 +1,6 @@
-TODO
+// TODO
 // replace caseInsensitive with the resulting regex in case.py -> make it a helper, not a converter
+// meaning caseInsensitive("create") becomes "[Cc][Rr][Ee][Aa][Tt][Ee]"
 module.exports = grammar({
     name: "gsql",
     extras: $ => [
