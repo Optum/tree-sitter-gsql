@@ -1,4 +1,4 @@
-createQuery = "CREATE" ('OR' 'REPLACE')? "DISTRIBUTED"? "QUERY" queryName "(" (parameterList)? ")" ("FOR" "GRAPH" graphName)? ("RETURNS" "(" baseType | accumType ")")? ("API" "(" stringLiteral ")")? ("SYNTAX" syntaxName)? "{" queryBody "}" ;
+createQuery := "CREATE" ('OR' 'REPLACE')? "DISTRIBUTED"? "QUERY" queryName "(" (parameterList)? ")" ("FOR" "GRAPH" graphName)? ("RETURNS" "(" baseType | accumType ")")? ("API" "(" stringLiteral ")")? ("SYNTAX" syntaxName)? "{" queryBody "}" ;
 interpretQuery := "INTERPRET" "QUERY" "(" ")" ("FOR" "GRAPH" graphName)? ("SYNTAX" syntaxName)? "{" queryBody "}" ;
 parameterValueList := parameterValue ("," parameterValue)* ;
 parameterValue := parameterConstant | "[" parameterValue ("," parameterValue)* "]" | "(" stringLiteral "," stringLiteral ")" ;

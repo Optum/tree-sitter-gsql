@@ -26,7 +26,12 @@ def case_sensitive_regex(match: re.Match):
         if c == '"':
             continue
         # rtn += "["
-        rtn += c.upper()
+        if "accum" in c.lower():
+            c = c.capitalize()
+            c = c.replace("accum", "Accum")
+            rtn += c
+        else:
+            rtn += c.upper()
         # rtn += c.lower()
         # rtn += "]"
     rtn += '"'

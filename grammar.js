@@ -3,7 +3,8 @@
 // meaning caseInsensitive("create") becomes "[Cc][Rr][Ee][Aa][Tt][Ee]"
 module.exports = grammar({
   name: "gsql",
-  extras: ($) => [/\s/, $.line_comment, $.block_comment, $.newline],
+  // extras: ($) => [/\s/, $.line_comment, $.block_comment, $.newline],
+  extras: ($) => [/\s/, $.line_comment, $.block_comment],
 
   conflicts: ($) => [[$.integer], [$.real]],
   rules: {
@@ -942,11 +943,14 @@ module.exports = grammar({
     comment: ($) => choice($.line_comment, $.block_comment),
 
     // this is used by grommet for keeping track of user's whitespace preference (leaving it be, that is)
-    newline: ($) => token(seq("<_-_-_>", "\n")),
-
-    line_comment: ($) => token(seq("//", /.*/)),
-
-    block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+    // newline: ($) => token(seq("<_-_-_>", "\n")),
+    // block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+    newline: ($) => token("\n"),
+    
+    comment_contents: ($) => /.*/,
+    block_comment: ($) =>
+      seq("/*", optional(repeat(choice($.newline, $.comment_contents))), "*/"),
+    line_comment: ($) => token(seq("//", repeat(/./))),
   },
 });
 
