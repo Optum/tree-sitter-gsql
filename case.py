@@ -21,20 +21,18 @@ def case_sensitive_regex(match: re.Match):
     """
     make everything caps
     """
-    rtn = '"'
+    rtn = ""
     for c in match.group(1):
         if c == '"':
             continue
         # rtn += "["
-        if "accum" in c.lower():
-            c = c.capitalize()
-            c = c.replace("accum", "Accum")
-            rtn += c
-        else:
-            rtn += c.upper()
+        rtn += c.upper()
         # rtn += c.lower()
         # rtn += "]"
-    rtn += '"'
+    if "accum" in rtn.lower() and len(rtn) > len("accum") and "post" not in rtn.lower():
+        rtn = rtn.capitalize()
+        rtn = rtn.replace("accum", "Accum")
+    rtn = '"' + rtn + '"'
     return rtn
 
 

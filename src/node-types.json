@@ -2061,7 +2061,355 @@
     "named": false
   },
   {
+    "type": "ACCUM",
+    "named": false
+  },
+  {
+    "type": "AND",
+    "named": false
+  },
+  {
+    "type": "ANY",
+    "named": false
+  },
+  {
+    "type": "AS",
+    "named": false
+  },
+  {
+    "type": "ASC",
+    "named": false
+  },
+  {
+    "type": "AVG",
+    "named": false
+  },
+  {
+    "type": "AndAccum",
+    "named": false
+  },
+  {
+    "type": "ArrayAccum",
+    "named": false
+  },
+  {
+    "type": "AvgAccum",
+    "named": false
+  },
+  {
+    "type": "BETWEEN",
+    "named": false
+  },
+  {
+    "type": "BOOL",
+    "named": false
+  },
+  {
+    "type": "BagAccum",
+    "named": false
+  },
+  {
+    "type": "BitwiseandAccum",
+    "named": false
+  },
+  {
+    "type": "BitwiseorAccum",
+    "named": false
+  },
+  {
+    "type": "CASE",
+    "named": false
+  },
+  {
+    "type": "COALESCE",
+    "named": false
+  },
+  {
+    "type": "COUNT",
+    "named": false
+  },
+  {
+    "type": "CREATE",
+    "named": false
+  },
+  {
+    "type": "DATETIME",
+    "named": false
+  },
+  {
+    "type": "DESC",
+    "named": false
+  },
+  {
+    "type": "DISTINCT",
+    "named": false
+  },
+  {
+    "type": "DISTRIBUTED",
+    "named": false
+  },
+  {
+    "type": "DO",
+    "named": false
+  },
+  {
+    "type": "DOUBLE",
+    "named": false
+  },
+  {
+    "type": "EDGE",
+    "named": false
+  },
+  {
+    "type": "ELSE",
+    "named": false
+  },
+  {
+    "type": "END",
+    "named": false
+  },
+  {
+    "type": "FALSE",
+    "named": false
+  },
+  {
+    "type": "FILTER",
+    "named": false
+  },
+  {
+    "type": "FLOAT",
+    "named": false
+  },
+  {
+    "type": "FOR",
+    "named": false
+  },
+  {
+    "type": "FOREACH",
+    "named": false
+  },
+  {
+    "type": "FROM",
+    "named": false
+  },
+  {
+    "type": "GRAPH",
+    "named": false
+  },
+  {
+    "type": "GSQL_INT_MAX",
+    "named": false
+  },
+  {
+    "type": "GSQL_UINT_MAX",
+    "named": false
+  },
+  {
+    "type": "GSQL_UINT_MIN",
+    "named": false
+  },
+  {
+    "type": "GroupbyAccum",
+    "named": false
+  },
+  {
+    "type": "HeapAccum",
+    "named": false
+  },
+  {
+    "type": "IF",
+    "named": false
+  },
+  {
+    "type": "IN",
+    "named": false
+  },
+  {
+    "type": "INSTALL",
+    "named": false
+  },
+  {
+    "type": "INT",
+    "named": false
+  },
+  {
+    "type": "INTERPRET",
+    "named": false
+  },
+  {
+    "type": "INTERSECT",
+    "named": false
+  },
+  {
+    "type": "IS",
+    "named": false
+  },
+  {
+    "type": "ISEMPTY",
+    "named": false
+  },
+  {
+    "type": "JSONARRAY",
+    "named": false
+  },
+  {
+    "type": "JSONOBJECT",
+    "named": false
+  },
+  {
+    "type": "LIKE",
+    "named": false
+  },
+  {
+    "type": "LIMIT",
+    "named": false
+  },
+  {
+    "type": "ListAccum",
+    "named": false
+  },
+  {
+    "type": "MAX",
+    "named": false
+  },
+  {
+    "type": "MIN",
+    "named": false
+  },
+  {
+    "type": "MINUS",
+    "named": false
+  },
+  {
+    "type": "MapAccum",
+    "named": false
+  },
+  {
+    "type": "MaxAccum",
+    "named": false
+  },
+  {
+    "type": "MinAccum",
+    "named": false
+  },
+  {
+    "type": "NOT",
+    "named": false
+  },
+  {
+    "type": "NULL",
+    "named": false
+  },
+  {
+    "type": "OFFSET",
+    "named": false
+  },
+  {
+    "type": "OR",
+    "named": false
+  },
+  {
+    "type": "OrAccum",
+    "named": false
+  },
+  {
+    "type": "POST-ACCUM",
+    "named": false
+  },
+  {
+    "type": "PRINT",
+    "named": false
+  },
+  {
+    "type": "QUERY",
+    "named": false
+  },
+  {
+    "type": "RANGE",
+    "named": false
+  },
+  {
+    "type": "REPLACE",
+    "named": false
+  },
+  {
+    "type": "SELECT",
+    "named": false
+  },
+  {
+    "type": "SET",
+    "named": false
+  },
+  {
+    "type": "STEP",
+    "named": false
+  },
+  {
+    "type": "STRING",
+    "named": false
+  },
+  {
+    "type": "SUM",
+    "named": false
+  },
+  {
+    "type": "SYNTAX",
+    "named": false
+  },
+  {
+    "type": "SetAccum",
+    "named": false
+  },
+  {
+    "type": "SumAccum",
+    "named": false
+  },
+  {
+    "type": "THEN",
+    "named": false
+  },
+  {
+    "type": "TO_CSV",
+    "named": false
+  },
+  {
+    "type": "TRUE",
+    "named": false
+  },
+  {
+    "type": "TUPLE",
+    "named": false
+  },
+  {
+    "type": "TYPEDEF",
+    "named": false
+  },
+  {
+    "type": "UINT",
+    "named": false
+  },
+  {
+    "type": "UNION",
+    "named": false
+  },
+  {
     "type": "V2",
+    "named": false
+  },
+  {
+    "type": "VERTEX",
+    "named": false
+  },
+  {
+    "type": "WHEN",
+    "named": false
+  },
+  {
+    "type": "WHERE",
+    "named": false
+  },
+  {
+    "type": "WHILE",
     "named": false
   },
   {

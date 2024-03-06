@@ -622,7 +622,7 @@ module.exports = grammar({
     accum_type: ($) =>
       choice(
         seq(
-          "SUMACCUM",
+          "SumAccum",
           "<",
           choice(
             "INT",
@@ -633,7 +633,7 @@ module.exports = grammar({
           ">",
         ),
         seq(
-          "MAXACCUM",
+          "MaxAccum",
           "<",
           choice(
             "INT",
@@ -643,7 +643,7 @@ module.exports = grammar({
           ">",
         ),
         seq(
-          "MINACCUM",
+          "MinAccum",
           "<",
           choice(
             "INT",
@@ -652,23 +652,23 @@ module.exports = grammar({
           ),
           ">",
         ),
-        "AVGACCUM",
-        "ORACCUM",
-        "ANDACCUM",
-        "BITWISEORACCUM",
-        "BITWISEANDACCUM",
+        "AvgAccum",
+        "OrAccum",
+        "AndAccum",
+        "BitwiseorAccum",
+        "BitwiseandAccum",
         seq(
-          "LISTACCUM",
+          "ListAccum",
           "<",
           choice($._element_type, $.accum_type),
           ">",
         ),
-        // seq("LISTACCUM", "<", choice($.base_type, $.accum_type, $.name), ">"),
-        // seq("SETACCUM", "<", choice($._element_type,$.accum_type), ">"),
-        seq("SETACCUM", "<", $._element_type, ">"),
-        seq("BAGACCUM", "<", $._element_type, ">"),
+        // seq("ListAccum", "<", choice($.base_type, $.accum_type, $.name), ">"),
+        // seq("SetAccum", "<", choice($._element_type,$.accum_type), ">"),
+        seq("SetAccum", "<", $._element_type, ">"),
+        seq("BagAccum", "<", $._element_type, ">"),
         seq(
-          "MAPACCUM",
+          "MapAccum",
           "<",
           $._element_type,
           ",",
@@ -676,7 +676,7 @@ module.exports = grammar({
           ">",
         ),
         seq(
-          "HEAPACCUM",
+          "HeapAccum",
           "<",
           $.name,
           ">",
@@ -695,7 +695,7 @@ module.exports = grammar({
           ")",
         ),
         seq(
-          "GROUPBYACCUM",
+          "GroupbyAccum",
           "<",
           $._element_type,
           $.name,
@@ -706,7 +706,7 @@ module.exports = grammar({
           repeat(seq(",", $.accum_type, $.name)),
           ">",
         ),
-        seq("ARRAYACCUM", "<", $.name, ">"),
+        seq("ArrayAccum", "<", $.name, ">"),
       ),
 
     //tested
