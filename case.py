@@ -17,11 +17,28 @@ def case_insensitive_regex(match: re.Match):
     return rtn
 
 
+def case_sensitive_regex(match: re.Match):
+    """
+    make everything caps
+    """
+    rtn = '"'
+    for c in match.group(1):
+        if c == '"':
+            continue
+        # rtn += "["
+        rtn += c.upper()
+        # rtn += c.lower()
+        # rtn += "]"
+    rtn += '"'
+    return rtn
+
+
 def process(line: str):
     rtn = []  # output (string builder)
     # find where in the line caseInsensitive is used
     for spl in line.split(" "):
-        res = pattern.sub(case_insensitive_regex, spl)
+        # res = pattern.sub(case_insensitive_regex, spl)
+        res = pattern.sub(case_sensitive_regex, spl)
         rtn.append(res)
 
     rtn = " ".join(r for r in rtn)
