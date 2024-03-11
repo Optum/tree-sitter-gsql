@@ -186,7 +186,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Maintainers
 
 - Robert Rossmiller
-  - GitHub Enterprise: [rrossmiller](https://github.com/rrossmiller)
+  - GitHub: [rrossmiller](https://github.com/rrossmiller)
   <!-- - Email: email1@email.com -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
