@@ -320,7 +320,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "query_body_stmts"
+            "name": "query_body_stmt"
           }
         },
         {
@@ -425,73 +425,69 @@
         }
       ]
     },
-    "query_body_stmts": {
+    "query_body_stmt": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "query_body_stmt"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "decl_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "assign_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "v_set_var_decl_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "l_accum_assign_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "g_accum_assign_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "g_accum_accum_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "func_call_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_select_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "query_body_case_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "query_body_if_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "query_body_while_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "query_body_for_each_stmt"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "print_stmt"
+            }
+          ]
         },
         {
           "type": "STRING",
           "value": ";"
-        }
-      ]
-    },
-    "query_body_stmt": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "decl_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "assign_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "v_set_var_decl_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "l_accum_assign_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "g_accum_assign_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "g_accum_accum_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "func_call_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_select_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "query_body_case_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "query_body_if_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "query_body_while_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "query_body_for_each_stmt"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "print_stmt"
         }
       ]
     },
@@ -2352,7 +2348,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "query_body_stmts"
+                    "name": "query_body_stmt"
                   }
                 ]
               }
@@ -2369,7 +2365,7 @@
                     },
                     {
                       "type": "SYMBOL",
-                      "name": "query_body_stmts"
+                      "name": "query_body_stmt"
                     }
                   ]
                 },
@@ -2414,7 +2410,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "query_body_stmts"
+                    "name": "query_body_stmt"
                   }
                 ]
               }
@@ -2431,7 +2427,7 @@
                     },
                     {
                       "type": "SYMBOL",
-                      "name": "query_body_stmts"
+                      "name": "query_body_stmt"
                     }
                   ]
                 },
@@ -2468,7 +2464,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "query_body_stmts"
+            "name": "query_body_stmt"
           },
           {
             "type": "REPEAT",
@@ -2493,7 +2489,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "query_body_stmts"
+                  "name": "query_body_stmt"
                 }
               ]
             }
@@ -2510,7 +2506,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "query_body_stmts"
+                    "name": "query_body_stmt"
                   }
                 ]
               },
@@ -2564,7 +2560,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "query_body_stmts"
+          "name": "query_body_stmt"
         },
         {
           "type": "STRING",
@@ -2589,7 +2585,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "query_body_stmts"
+          "name": "query_body_stmt"
         },
         {
           "type": "STRING",

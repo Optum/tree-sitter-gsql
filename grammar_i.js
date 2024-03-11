@@ -69,7 +69,8 @@ module.exports = grammar({
         "{",
         repeat($.typedef),
         // optional($.declaration_except_stmts),
-        repeat($.query_body_stmts),
+        // repeat($.query_body_stmts),
+        repeat($.query_body_stmt),
         "}",
       ),
 
@@ -93,9 +94,9 @@ module.exports = grammar({
       choice(seq($.base_type, $.name), seq($.name, $.base_type)),
 
     // tesing...
-    query_body_stmts: ($) => seq($.query_body_stmt, ";"),
+    // query_body_stmts: ($) => seq($.query_body_stmt, ";"),
 
-    query_body_stmt: ($) =>
+    query_body_stmt: ($) =>seq(
       choice(
         $.decl_stmt, // tested
         $.assign_stmt, // tested
@@ -120,7 +121,7 @@ module.exports = grammar({
         // returnStmt,
         // raiseStmt ,
         // tryStmt
-      ),
+      ),";"),
 
     //tested
     assign_stmt: ($) =>
@@ -516,10 +517,10 @@ module.exports = grammar({
               "WHEN",
               $.condition,
               "THEN",
-              $.query_body_stmts,
+              $.query_body_stmt,
             ),
           ),
-          optional(seq("ELSE", $.query_body_stmts)),
+          optional(seq("ELSE", $.query_body_stmt)),
           "END",
         ),
         seq(
@@ -530,10 +531,10 @@ module.exports = grammar({
               "WHEN",
               $.constant,
               "THEN",
-              $.query_body_stmts,
+              $.query_body_stmt,
             ),
           ),
-          optional(seq("ELSE", $.query_body_stmts)),
+          optional(seq("ELSE", $.query_body_stmt)),
           "END",
         ),
       ),
@@ -545,17 +546,17 @@ module.exports = grammar({
           "IF",
           $.condition,
           "THEN",
-          $.query_body_stmts,
+          $.query_body_stmt,
           repeat(
             seq(
               "ELSE",
               "IF",
               $.condition,
               "THEN",
-              $.query_body_stmts,
+              $.query_body_stmt,
             ),
           ),
-          optional(seq("ELSE", $.query_body_stmts)),
+          optional(seq("ELSE", $.query_body_stmt)),
           "END",
         ),
       ),
@@ -566,7 +567,7 @@ module.exports = grammar({
         $.condition,
         optional(seq("LIMIT", $.simple_size)),
         "DO",
-        $.query_body_stmts,
+        $.query_body_stmt,
         "END",
       ),
 
@@ -575,7 +576,7 @@ module.exports = grammar({
         "FOREACH",
         $.for_each_control,
         "DO",
-        $.query_body_stmts,
+        $.query_body_stmt,
         "END",
       ),
 

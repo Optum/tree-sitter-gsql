@@ -69,7 +69,8 @@ module.exports = grammar({
         "{",
         repeat($.typedef),
         // optional($.declaration_except_stmts),
-        repeat($.query_body_stmts),
+        // repeat($.query_body_stmts),
+        repeat($.query_body_stmt),
         "}",
       ),
 
@@ -93,9 +94,9 @@ module.exports = grammar({
       choice(seq($.base_type, $.name), seq($.name, $.base_type)),
 
     // tesing...
-    query_body_stmts: ($) => seq($.query_body_stmt, ";"),
+    // query_body_stmts: ($) => seq($.query_body_stmt, ";"),
 
-    query_body_stmt: ($) =>
+    query_body_stmt: ($) =>seq(
       choice(
         $.decl_stmt, // tested
         $.assign_stmt, // tested
@@ -120,7 +121,7 @@ module.exports = grammar({
         // returnStmt,
         // raiseStmt ,
         // tryStmt
-      ),
+      ),";"),
 
     //tested
     assign_stmt: ($) =>
@@ -516,10 +517,10 @@ module.exports = grammar({
               caseInsensitive("when"),
               $.condition,
               caseInsensitive("then"),
-              $.query_body_stmts,
+              $.query_body_stmt,
             ),
           ),
-          optional(seq(caseInsensitive("else"), $.query_body_stmts)),
+          optional(seq(caseInsensitive("else"), $.query_body_stmt)),
           caseInsensitive("end"),
         ),
         seq(
@@ -530,10 +531,10 @@ module.exports = grammar({
               caseInsensitive("when"),
               $.constant,
               caseInsensitive("then"),
-              $.query_body_stmts,
+              $.query_body_stmt,
             ),
           ),
-          optional(seq(caseInsensitive("else"), $.query_body_stmts)),
+          optional(seq(caseInsensitive("else"), $.query_body_stmt)),
           caseInsensitive("end"),
         ),
       ),
@@ -545,17 +546,17 @@ module.exports = grammar({
           caseInsensitive("if"),
           $.condition,
           caseInsensitive("then"),
-          $.query_body_stmts,
+          $.query_body_stmt,
           repeat(
             seq(
               caseInsensitive("else"),
               caseInsensitive("if"),
               $.condition,
               caseInsensitive("then"),
-              $.query_body_stmts,
+              $.query_body_stmt,
             ),
           ),
-          optional(seq(caseInsensitive("else"), $.query_body_stmts)),
+          optional(seq(caseInsensitive("else"), $.query_body_stmt)),
           caseInsensitive("end"),
         ),
       ),
@@ -566,7 +567,7 @@ module.exports = grammar({
         $.condition,
         optional(seq(caseInsensitive("limit"), $.simple_size)),
         caseInsensitive("do"),
-        $.query_body_stmts,
+        $.query_body_stmt,
         caseInsensitive("end"),
       ),
 
@@ -575,7 +576,7 @@ module.exports = grammar({
         caseInsensitive("foreach"),
         $.for_each_control,
         caseInsensitive("do"),
-        $.query_body_stmts,
+        $.query_body_stmt,
         caseInsensitive("end"),
       ),
 

@@ -1217,7 +1217,7 @@
       "required": false,
       "types": [
         {
-          "type": "query_body_stmts",
+          "type": "query_body_stmt",
           "named": true
         },
         {
@@ -1248,7 +1248,7 @@
           "named": true
         },
         {
-          "type": "query_body_stmts",
+          "type": "query_body_stmt",
           "named": true
         }
       ]
@@ -1267,7 +1267,7 @@
           "named": true
         },
         {
-          "type": "query_body_stmts",
+          "type": "query_body_stmt",
           "named": true
         }
       ]
@@ -1286,7 +1286,7 @@
           "named": true
         },
         {
-          "type": "query_body_stmts",
+          "type": "query_body_stmt",
           "named": true
         }
       ]
@@ -1356,21 +1356,6 @@
     }
   },
   {
-    "type": "query_body_stmts",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "query_body_stmt",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "query_body_while_stmt",
     "named": true,
     "fields": {},
@@ -1383,7 +1368,7 @@
           "named": true
         },
         {
-          "type": "query_body_stmts",
+          "type": "query_body_stmt",
           "named": true
         },
         {
