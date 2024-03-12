@@ -3,8 +3,8 @@
 // meaning "CREATE" becomes "[Cc][Rr][Ee][Aa][Tt][Ee]"
 module.exports = grammar({
   name: "gsql",
-  // extras: ($) => [/\s/, $.line_comment, $.block_comment, $.newline],
-  extras: ($) => [/\s/, $.line_comment, $.block_comment],
+  extras: ($) => [/\s/, $.line_comment, $.block_comment, $.spacing_line],
+  // extras: ($) => [/\s/, $.line_comment, $.block_comment],
 
   conflicts: ($) => [[$.integer], [$.real]],
   rules: {
@@ -96,32 +96,35 @@ module.exports = grammar({
     // tesing...
     // query_body_stmts: ($) => seq($.query_body_stmt, ";"),
 
-    query_body_stmt: ($) =>seq(
-      choice(
-        $.decl_stmt, // tested
-        $.assign_stmt, // tested
-        $.v_set_var_decl_stmt, // tested
-        $.l_accum_assign_stmt, // tested
-        $.g_accum_assign_stmt, // tested
-        $.g_accum_accum_stmt, // tested
-        $.func_call_stmt, // tested
-        $._select_stmt, // tested
-        $.query_body_case_stmt, //tested
-        $.query_body_if_stmt, //tested
-        $.query_body_while_stmt, // tested
-        $.query_body_for_each_stmt, //tested
-        // "BREAK",
-        // "CONTINUE",
-        // updateStmt ,
-        // insertStmt ,
-        // queryBodyDeleteStmt ,
-        $.print_stmt, //tested
-        // printlnStmt ,
-        // logStmt ,
-        // returnStmt,
-        // raiseStmt ,
-        // tryStmt
-      ),";"),
+    query_body_stmt: ($) =>
+      seq(
+        choice(
+          $.decl_stmt, // tested
+          $.assign_stmt, // tested
+          $.v_set_var_decl_stmt, // tested
+          $.l_accum_assign_stmt, // tested
+          $.g_accum_assign_stmt, // tested
+          $.g_accum_accum_stmt, // tested
+          $.func_call_stmt, // tested
+          $._select_stmt, // tested
+          $.query_body_case_stmt, //tested
+          $.query_body_if_stmt, //tested
+          $.query_body_while_stmt, // tested
+          $.query_body_for_each_stmt, //tested
+          // "BREAK",
+          // "CONTINUE",
+          // updateStmt ,
+          // insertStmt ,
+          // queryBodyDeleteStmt ,
+          $.print_stmt, //tested
+          // printlnStmt ,
+          // logStmt ,
+          // returnStmt,
+          // raiseStmt ,
+          // tryStmt
+        ),
+        ";",
+      ),
 
     //tested
     assign_stmt: ($) =>
@@ -947,7 +950,9 @@ module.exports = grammar({
     // newline: ($) => token(seq("<_-_-_>", "\n")),
     // block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
     newline: ($) => token("\n"),
-    
+    spacing_line: ($) => token("<_-_-_>"),
+    // newline: ($) => "\n",
+
     comment_contents: ($) => /.*/,
     block_comment: ($) =>
       seq("/*", optional(repeat(choice($.newline, $.comment_contents))), "*/"),

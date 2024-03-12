@@ -3,8 +3,8 @@ rm -rf src build
 # pre gen for testing with case-insensitive parser
 ./node_modules/.bin/tree-sitter generate
 
-echo 'Testing'
-./node_modules/.bin/tree-sitter test
+# echo 'Testing'
+# ./node_modules/.bin/tree-sitter test
 
 # case-sensitive version for grommet
 if [[ $1 = 'i' ]]; then

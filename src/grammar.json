@@ -4644,6 +4644,13 @@
         "value": "\n"
       }
     },
+    "spacing_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "<_-_-_>"
+      }
+    },
     "comment_contents": {
       "type": "PATTERN",
       "value": ".*"
@@ -4717,6 +4724,10 @@
     {
       "type": "SYMBOL",
       "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "spacing_line"
     }
   ],
   "conflicts": [
