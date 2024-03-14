@@ -280,7 +280,11 @@
       "required": false,
       "types": [
         {
-          "type": "numeric",
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "real",
           "named": true
         },
         {
@@ -1053,25 +1057,6 @@
     }
   },
   {
-    "type": "numeric",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "real",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "parameter_list",
     "named": true,
     "fields": {},
@@ -1218,6 +1203,10 @@
       "types": [
         {
           "type": "query_body_stmt",
+          "named": true
+        },
+        {
+          "type": "spacing_line",
           "named": true
         },
         {
@@ -1391,11 +1380,15 @@
           "named": true
         },
         {
+          "type": "integer",
+          "named": true
+        },
+        {
           "type": "name",
           "named": true
         },
         {
-          "type": "numeric",
+          "type": "real",
           "named": true
         },
         {

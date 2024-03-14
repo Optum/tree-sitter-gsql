@@ -3,8 +3,8 @@
 // meaning "CREATE" becomes "[Cc][Rr][Ee][Aa][Tt][Ee]"
 module.exports = grammar({
   name: "gsql",
-  extras: ($) => [/\s/, $.line_comment, $.block_comment, $.spacing_line],
-  // extras: ($) => [/\s/, $.line_comment, $.block_comment],
+  // extras: ($) => [/\s/, $.line_comment, $.block_comment, $.spacing_line],
+  extras: ($) => [/\s/, $.line_comment, $.block_comment],
 
   conflicts: ($) => [[$.integer], [$.real]],
   rules: {
@@ -51,7 +51,7 @@ module.exports = grammar({
       seq(
         choice($._type, $.set_param),
         $.name,
-        optional(seq("=", $.numeric)), //FIXME: this can be more than numeric
+        optional(seq("=", $._numeric)), //FIXME: this can be more than numeric
       ),
 
     set_param: ($) =>
@@ -67,10 +67,7 @@ module.exports = grammar({
     query_body: ($) =>
       seq(
         "{",
-        repeat($.typedef),
-        // optional($.declaration_except_stmts),
-        // repeat($.query_body_stmts),
-        repeat($.query_body_stmt),
+        repeat(choice($.typedef, $.spacing_line, $.query_body_stmt)),
         "}",
       ),
 
@@ -92,9 +89,6 @@ module.exports = grammar({
     //tested
     tuple_field: ($) =>
       choice(seq($.base_type, $.name), seq($.name, $.base_type)),
-
-    // tesing...
-    // query_body_stmts: ($) => seq($.query_body_stmt, ";"),
 
     query_body_stmt: ($) =>
       seq(
@@ -163,7 +157,7 @@ module.exports = grammar({
         1,
         choice(
           $.name,
-          seq("(", $.simple_set, ")"),
+          seq("(", $.simple_set, ")"), // this will get captured by assign instead
           seq(
             $.simple_set,
             choice(
@@ -834,7 +828,7 @@ module.exports = grammar({
             $.set_bag_expr,
           ),
           seq("(", $.arg_list, ")"),
-          seq("(", $.set_bag_expr, ")"),
+          seq("(", $.set_bag_expr, ")"), // this is redundant and will get captured by "(expr)"
         ),
       ),
 
@@ -915,7 +909,7 @@ module.exports = grammar({
 
     constant: ($) =>
       choice(
-        $.numeric,
+        $._numeric,
         $.string_literal,
         "TRUE",
         "FALSE",
@@ -924,7 +918,7 @@ module.exports = grammar({
         "GSQL_UINT_MIN",
       ),
 
-    numeric: ($) => choice($.integer, $.real),
+    _numeric: ($) => choice($.integer, $.real),
 
     integer: ($) => seq(optional("-"), $.digit),
 
@@ -946,12 +940,10 @@ module.exports = grammar({
     // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
     comment: ($) => choice($.line_comment, $.block_comment),
 
+    newline: ($) => "\n",
     // this is used by grommet for keeping track of user's whitespace preference (leaving it be, that is)
-    // newline: ($) => token(seq("<_-_-_>", "\n")),
-    // block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
-    newline: ($) => token("\n"),
-    spacing_line: ($) => token("<_-_-_>"),
-    // newline: ($) => "\n",
+    // spacing_line: ($) => token("<_-_-_>"),
+    spacing_line: ($) => token("\n\n"),
 
     comment_contents: ($) => /.*/,
     block_comment: ($) =>
@@ -960,7 +952,6 @@ module.exports = grammar({
   },
 });
 
-//todo return matched text instead of regex?
 function caseInsensitive(keyword) {
   return new RegExp(
     keyword

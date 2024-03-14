@@ -270,7 +270,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "numeric"
+                  "name": "_numeric"
                 }
               ]
             },
@@ -312,15 +312,21 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "typedef"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "query_body_stmt"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "typedef"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "spacing_line"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "query_body_stmt"
+              }
+            ]
           }
         },
         {
@@ -4371,7 +4377,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "numeric"
+          "name": "_numeric"
         },
         {
           "type": "SYMBOL",
@@ -4399,7 +4405,7 @@
         }
       ]
     },
-    "numeric": {
+    "_numeric": {
       "type": "CHOICE",
       "members": [
         {
@@ -4638,17 +4644,14 @@
       ]
     },
     "newline": {
-      "type": "TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": "\n"
-      }
+      "type": "STRING",
+      "value": "\n"
     },
     "spacing_line": {
       "type": "TOKEN",
       "content": {
         "type": "STRING",
-        "value": "<_-_-_>"
+        "value": "\n\n"
       }
     },
     "comment_contents": {
@@ -4724,10 +4727,6 @@
     {
       "type": "SYMBOL",
       "name": "block_comment"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "spacing_line"
     }
   ],
   "conflicts": [
