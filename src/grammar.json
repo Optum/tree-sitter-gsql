@@ -753,34 +753,21 @@
       ]
     },
     "g_accum_assign_stmt": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "global_accum_name"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "+="
-              },
-              {
-                "type": "STRING",
-                "value": "="
-              }
-            ]
-          },
-          {
-            "type": "SYMBOL",
-            "name": "expr"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "global_accum_name"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr"
+        }
+      ]
     },
     "g_accum_accum_stmt": {
       "type": "SEQ",
@@ -4526,11 +4513,8 @@
               "value": "\""
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "PATTERN",
-                "value": "[^\"&]"
-              }
+              "type": "SYMBOL",
+              "name": "string_fragment"
             },
             {
               "type": "STRING",
@@ -4546,11 +4530,8 @@
               "value": "'"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "PATTERN",
-                "value": "[^'&]"
-              }
+              "type": "SYMBOL",
+              "name": "string_fragment"
             },
             {
               "type": "STRING",
@@ -4559,6 +4540,10 @@
           ]
         }
       ]
+    },
+    "string_fragment": {
+      "type": "PATTERN",
+      "value": "[^\"'\\n]+"
     },
     "math_operator": {
       "type": "CHOICE",
@@ -4597,7 +4582,7 @@
         },
         {
           "type": "STRING",
-          "value": " | "
+          "value": "|"
         }
       ]
     },
@@ -4742,4 +4727,3 @@
   "inline": [],
   "supertypes": []
 }
-

@@ -1,37 +1,58 @@
 {
-    "name": "tree-sitter-gsql",
-    "version": "0.1.0",
-    "description": "gsql grammar for tree-sitter",
-    "main": "bindings/node",
-    "keywords": [
-        "parsing",
-        "incremental",
-        "gsql",
-        "tigergraph"
-    ],
-    "author": "Rob Rossmiller",
-    "license": "Apache-2.0",
-    "private": false,
-    "scripts": {
-        "build": "./build.sh",
-        "test": "tree-sitter test"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Optum/tree-sitter-gsql"
-    },
-    "dependencies": {
-        "nan": "^2.18.0"
-    },
-    "tree-sitter": [
-        {
-            "scope": "source.gsql",
-            "file-types": [
-                "gsql"
-            ]
-        }
-    ],
-    "devDependencies": {
-        "tree-sitter-cli": "^0.20.8"
+  "name": "tree-sitter-gsql",
+  "version": "0.1.0",
+  "description": "gsql grammar for tree-sitter",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "parsing",
+    "incremental",
+    "gsql",
+    "tigergraph"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "author": "Rob Rossmiller",
+  "license": "Apache-2.0",
+  "private": false,
+  "scripts": {
+    "build": "./build.sh",
+    "test": "tree-sitter test",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Optum/tree-sitter-gsql"
+  },
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
     }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.gsql",
+      "file-types": [
+        "gsql"
+      ]
+    }
+  ],
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8",
+    "prebuildify": "^6.0.0"
+  }
 }

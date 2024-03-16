@@ -1,9 +1,10 @@
 clear
 rm -rf src build
 # pre gen for testing with case-insensitive parser
-./node_modules/.bin/tree-sitter generate
+# ./node_modules/.bin/tree-sitter generate
 
 # echo 'Testing'
+# tree-sitter generate
 # ./node_modules/.bin/tree-sitter test
 
 # case-sensitive version for grommet
@@ -15,7 +16,8 @@ if [[ $1 = 'i' ]]; then
         python3 case.py &&
         # regenerate the library with the case-sensitive grammar
         echo 'regenerate the library with the case-sensitive grammar' &&
-        ./node_modules/.bin/tree-sitter generate
+        # ./node_modules/.bin/tree-sitter generate
+        tree-sitter generate
 
     # reset grammar.js to grammar with case insensitive function
     echo
